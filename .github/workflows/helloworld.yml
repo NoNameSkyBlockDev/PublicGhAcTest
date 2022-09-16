@@ -12,3 +12,11 @@ jobs:
     steps:
       - name: Secondly HelloWorld
         run: echo "Hello World - Secondly"
+  helloworld-extend:
+    runs-on: ubuntu-latest
+    needs: [helloworld,helloworld-secondly]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test Message
+        run: echo "This is test message!"
