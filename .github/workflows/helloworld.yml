@@ -30,3 +30,27 @@ jobs:
     steps:
       - name: Advanced HelloWorld
         run: echo "Advanced Hello World!"
+  hw01:
+    runs-on: ubuntu-latest
+    needs: [helloworld]
+    steps:
+      - name: Hello World!
+        run: echo "Hello World!"
+  hw02:
+    runs-on: ubuntu-latest
+    needs: [helloworld,hw01,helloworld-advanced]
+    steps:
+      - name: Hello World!
+        run: echo "Hello World!"
+  hw03:
+    runs-on: ubuntu-latest
+    needs: [helloworld,helloworld-extend]
+    steps:
+      - name: Hello World!
+        run: echo "Hello World!"
+  hw04:
+    runs-on: ubuntu-latest
+    needs: [hw,helloworld,hw01,hw02,hw03]
+    steps:
+      - name: Hello World!
+        run: echo "Hello World!"
