@@ -1,7 +1,14 @@
 name: Hello World
 on: [push]
 jobs:
-  echo-helloworld:
+  helloworld:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Welcome to github action's world!"
+      - name: First HelloWorld
+        run: echo "Welcome to github action's world!"
+  helloworld-secondly:
+    runs-on: ubuntu-latest
+    needs: helloworld
+    steps:
+      - name: Secondly HelloWorld
+        run: echo "Hello World - Secondly"
